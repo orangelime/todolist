@@ -1,0 +1,203 @@
+.weather-wrapper{
+  position: absolute;
+  overflow: hidden;
+  top: 3rem;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 105vh;
+  background: linear-gradient(rgb(255, 255, 255),rgb(244,249,255),rgb(122,191,255));
+}
+/*搜尋城市*/
+.weather-wrapper > .search-wrapper > .city-search-wrapper{
+  width: 100%;
+  height: 2.1875rem;
+  padding: .625rem 1.875rem;
+  box-sizing: border-box;
+}
+.weather-wrapper > .search-wrapper > .icon-paragraph-left{
+  width: 1.75rem;
+  height: 1.9375rem;
+  background-size: .8125rem .8125rem;
+  position:absolute;
+  padding-top: 1.0625rem;
+  margin-left: .4375rem;
+}
+.weather-wrapper > .search-wrapper > .city-search-wrapper > .city-search{
+  width: 100%;
+  height: 1.9375rem;
+  border: 0;
+  box-sizing: border-box;
+  background: rgb(255, 255, 255);
+  border-radius: .3125rem;
+  padding:.0625rem 0 0 2.1875rem;
+  font-size: 1rem;
+  outline: none;
+}
+.weather-wrapper > .search-wrapper > .city-search-wrapper >  .icon-search{
+  width: 1.75rem;
+  height: 1.9375rem;
+  background-size: .8125rem .8125rem;
+  position:absolute;
+  padding:.4375rem 0 0 .625rem;
+
+}
+/*地址選擇*/
+.weather-wrapper > .select-location{
+  width: 26%;
+  height:100%;
+  background:linear-gradient(rgb(255, 255, 255),rgb(244,249,255),rgb(122,191,255));
+  position: fixed;
+  left: 0;
+  top:0;
+  bottom: 0;
+  overflow: scroll;
+  z-index:99;
+}
+
+.weather-wrapper >  .select-location > .select-item{
+  width:5.1875rem;
+  height:100%;
+  float: left;
+  padding:0;
+  box-sizing: border-box;
+}
+.weather-wrapper > .select-location > .select-item > .item{
+  color:black;
+  font-size:1.125rem;
+  height: 1.625rem;
+  line-height: 1.625rem;
+  border-radius: .75rem;
+  text-align: center;
+  margin-bottom: .25rem;
+}
+.weather-wrapper > .select-location > .select-item > .item a{
+  cursor: pointer;
+}
+.weather-wrapper > .select-location > .select-item > .item:active{
+  background:black;
+  color: white;
+}
+/*現在天氣*/
+.weather-wrapper > .weather-view{
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: .3125rem;
+  text-align:center;
+}
+.weather-wrapper > .weather-view > .weather-content{
+  flex:1;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-between;
+  width: 50%;
+  padding-left: .3125rem;
+}
+.weather-wrapper > .weather-view > .weather-content > .temperature{
+  font-size: 3.125rem;
+  margin: 0;
+}
+.weather-wrapper > .weather-view > .weather-content > .weather-icon {
+  height: 4.15rem;
+  margin: -1.25rem 0 2.125rem;
+}
+/*今明預報*/
+.weather-wrapper > .forecast >.weather-dec{
+  margin: 0 5%;
+}
+.weather-wrapper > .forecast >.weather-dec p{
+  text-align: left;
+  color: brown;
+  letter-spacing:-2px;
+}
+.weather-wrapper > .forecast > .forecast-table{
+  font-size: 1rem;
+  width:100%;
+  border-collapse:collapse;
+  text-align: center;
+  line-height:1.25rem;
+}
+.weather-wrapper > .forecast > .forecast-table th{
+  width: 20%;
+  font-weight: bold;
+  border-bottom:1px solid rgb(216, 218, 215);
+}
+.weather-wrapper > .forecast > .forecast-table tbody > tr > .detail{
+  font-size: 0.9rem;
+}
+.weather-wrapper > .forecast > .forecast-table tbody > tr > td > .time{
+  font-size: .8rem;
+}
+.weather-wrapper > .forecast > .forecast-table tbody > tr > td > .icon{
+  height:2rem;
+}
+/*一周預報*/
+.forcast-week{
+  margin: 0 .3125rem 0 .3125rem;
+  padding-top: 1.25rem;
+}
+.forcast-week > .week-table{
+  width:100%;
+  border-collapse:collapse;
+  text-align: center;
+  line-height: 1.25rem;
+}
+.forcast-week > .week-table th:first-child{
+  font-size: .9375rem;
+}
+.forcast-week > .week-table th{
+  width: 12.5%;
+  border-bottom:1px solid rgb(216, 218, 215);
+  font-size: .8125rem;
+}
+.forcast-week > .week-table > thead > .week th{
+  font-size: .8125rem;
+}
+.forcast-week > .week-table tbody{
+  width: 12.5%;
+  font-size:.875rem;
+}
+.forcast-week > .week-table > tbody > tr{
+  border-bottom:1px solid rgb(216, 218, 215);
+}
+.forcast-week > .week-table > tbody > tr > .temp{
+  font-size: .75rem;
+}
+.forcast-week > .week-table > tbody > tr > .temp > span > .icons{
+  height:2rem;
+  width:2rem;
+}
+@media screen and (min-width:640px){
+  .weather-wrapper{
+    height: 120vh;
+  }
+  .weather-wrapper > .select-location{
+    width: 10%;
+  }
+  .weather-wrapper >  .select-location > .select-item{
+    padding:.3125rem 0.5rem .4375rem 0.5rem;
+  }
+}
+@media screen and (max-width:360px){
+  .weather-wrapper{
+    height: 120vh;
+  }
+  .weather-wrapper > .forecast > .forecast-table{
+    font-size: 0.9rem;
+  }
+  .weather-wrapper > .forecast > .forecast-table tbody > tr > .detail:first-child{
+    font-size: 0.9rem;
+  }
+  .weather-wrapper > .forecast > .forecast-table tbody > tr > .detail{
+    font-size: 0.7rem;
+  }
+  .weather-wrapper > .forecast > .forecast-table tbody > tr > td > .time{
+    font-size: 0.7rem;
+  }
+  .weather-wrapper > .forecast > .forecast-table tbody > tr > td > .icon{
+    height:1.5rem;
+  }
+  .forcast-week > .week-table th{
+    font-size: 0.75rem;
+  }
+}

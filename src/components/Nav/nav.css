@@ -1,0 +1,29 @@
+.nav{
+  display: flex;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid rgb(58,64,72);
+
+}
+.nav .nav-item{
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(96,102,110);
+  position: relative;
+}
+.nav .active{
+  color:rgb(205,213,221);
+}
+.nav .active .line{
+  width: 50px;
+  height: 2px;
+  display: inline-block;
+  background: rgb(205,88,129);
+  /*居中*/
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -25px;
+}

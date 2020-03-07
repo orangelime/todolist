@@ -47,5 +47,4 @@ export default {
   .slide-to-top-leave-to{
     transform: translateY(100%);
   }
-
 </style>

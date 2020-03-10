@@ -159,7 +159,7 @@ height:100%;/*不能超過這個高度*/
     font-size: 1rem;
   }
   .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item{
-    height: 120vh;
+    height: 135vh;
   }
   .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item > ul > li > .name{
     font-size: 3rem;

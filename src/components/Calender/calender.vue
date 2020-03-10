@@ -107,11 +107,13 @@ export default {
 .header .calender-wrapper .date-wrapper .weekly-wrapper{
   color: rgb(218,227,235);
   font-weight: bold;
-  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 2.5rem;
 }
 .header .calender-wrapper .date-wrapper .daily-wrapper{
   color: rgb(104,110,119);
   font-weight: bold;
+  line-height: 1.25rem;
 }
 
 </style>

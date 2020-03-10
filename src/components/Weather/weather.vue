@@ -221,16 +221,18 @@ export default {
           return this.getDate();
       }
 
+
+
       var month = now.getMonth() + 1 < 10 ? '0' +  (now.getMonth() + 1) : now.getMonth() + 1;
       if((hour >= 0 && min >= 0) && (hour <=17 && min >= 0)){
         var day = now.getDate() < 10 ? '0' + now.getDate() : now.getDate();
         var week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][now.getDay()];
         //console.log(typeof(day))
       }else{
-        var day = (now.addDays(1) < 10 ? '0'  : '') + now.addDays(0)
+        var day = (now.addDays(1) < 10 ? '0'  : '') + now.addDays(0);
         var week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][now.getDay()];
       }
-      return month + '/' + day + week;
+      return month + '/' + day +' \n '+ week;
     },
   },
   computed:{

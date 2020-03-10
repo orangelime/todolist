@@ -32,14 +32,14 @@
             <option :value="item" v-for="(item,index) in filterCity" :key="index">{{item}}</option>
           </select>
         </div>
-          <!--縣市站點-->
-          <div class="station-wrapper">
-            <ul>
-              <li class="station-item" :class="statusColor(item.Status)" v-for="(item,index) in filterStation" :key="index" @click="currentAqi(index)">
-                <p class="station">{{item.SiteName}}</p>
-              </li>
-            </ul>
-          </div>
+        <!--縣市站點-->
+        <div class="station-wrapper">
+          <ul>
+            <li class="station-item" :class="statusColor(item.Status)" v-for="(item,index) in filterStation" :key="index" @click="currentAqi(index)">
+              <p class="station">{{item.SiteName}}</p>
+            </li>
+          </ul>
+        </div>
       </div>
       <!--空氣汙染指標內容-->
       <div class="quality-wrapper">

@@ -102,15 +102,13 @@
   font-size: 3.125rem;
   height: 4.375rem;
 }
-.apparent-temperature{
+.weather-wrapper > .weather-view > .weather-content > .apparent-temperature,
+.weather-wrapper > .weather-view > .weather-content > .rain{
   height: 3rem;
 }
 .weather-wrapper > .weather-view > .weather-content > .weather-icon {
   height: 4.375rem;;
   margin: -1.25rem 0 1rem;
-}
-.rain{
-  height: 3rem;
 }
 /*今明預報*/
 .weather-wrapper > .forecast{
@@ -191,6 +189,9 @@
   }
   .weather-wrapper >  .select-location > .select-item{
     padding:.3125rem 0.5rem .4375rem 0.5rem;
+  }
+  .weather-wrapper>.forecast>.forecast-table{
+    line-height: 1em;
   }
 }
 @media screen and (max-width:360px){

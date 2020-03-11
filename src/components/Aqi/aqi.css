@@ -74,9 +74,11 @@
 }
 /*縣市站點*/
 .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper{
-  overflow:auto;/*超過頁面出現捲軸*/
-height:100%;/*不能超過這個高度*/
-
+  position: absolute;
+  overflow: auto;
+  bottom: 0;
+  top:100px;
+  left: 0;
 }
 .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper > ul{
   margin:0;
@@ -85,7 +87,7 @@ height:100%;/*不能超過這個高度*/
   max-height:520px;
 }
 .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper > ul > .station-item{
-  width:  8.75rem;
+  width: 8.75rem;
   text-align: left;
   border:1px solid rgb(216, 218, 215);
   padding:1rem .5rem 1rem .375rem;
@@ -157,6 +159,10 @@ height:100%;/*不能超過這個高度*/
 @media screen and (min-width:640px){
   .air-wrapper > .light-wrapper > .light-content{
     font-size: 1rem;
+  }
+  .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper > ul > .station-item{
+    width: 8rem;
+    padding:1rem 1rem 1rem 0.1rem;
   }
   .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item{
     height: 135vh;

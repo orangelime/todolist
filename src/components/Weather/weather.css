@@ -1,17 +1,14 @@
 .weather-wrapper{
   position: absolute;
-  overflow: hidden;
+  overflow: scroll;
   top: 3.2rem;
   bottom: 0;
   width: 100%;
   left: 0;
-  height: 120vh;
+
   background: linear-gradient(rgb(255, 255, 255),rgb(244,249,255),rgb(122,191,255));
 }
 /*搜尋城市*/
-.weather-wrapper > .search-wrapper{
-  height:5%;
-}
 .weather-wrapper > .search-wrapper > .city-search-wrapper{
   width: 100%;
   height: 2.1875rem;

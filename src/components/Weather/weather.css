@@ -5,7 +5,7 @@
   bottom: 0;
   width: 100%;
   left: 0;
-  height: 100%;
+  height: 120vh;
   background: linear-gradient(rgb(255, 255, 255),rgb(244,249,255),rgb(122,191,255));
 }
 /*搜尋城市*/
@@ -82,12 +82,9 @@
 }
 /*現在天氣*/
 .weather-wrapper > .weather-view{
-  height:20%;
-}
-.weather-wrapper > .weather-view{
   display: flex;
   flex-wrap: wrap;
-  padding-top: 1rem;
+  padding: 1rem 0;
   text-align:center;
 }
 .weather-wrapper > .weather-view > .weather-content{
@@ -100,20 +97,17 @@
 }
 .weather-wrapper > .weather-view > .weather-content > .temperature{
   font-size: 3.125rem;
-  height: 4.375rem;
+  height: 5rem;
 }
 .weather-wrapper > .weather-view > .weather-content > .apparent-temperature,
 .weather-wrapper > .weather-view > .weather-content > .rain{
-  height: 2rem;
+  height: 3rem;
 }
 .weather-wrapper > .weather-view > .weather-content > .weather-icon {
-  height: 4.375rem;;
+  height: 5.2rem;;
   margin: -1.25rem 0 1rem;
 }
 /*今明預報*/
-/*.weather-wrapper > .forecast{
-  height:35%;
-}*/
 .weather-wrapper > .forecast >.weather-dec{
   margin: 0 5%;
 }

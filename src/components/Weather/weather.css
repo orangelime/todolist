@@ -5,7 +5,6 @@
   bottom: 0;
   width: 100%;
   left: 0;
-
   background: linear-gradient(rgb(255, 255, 255),rgb(244,249,255),rgb(122,191,255));
 }
 /*搜尋城市*/
@@ -172,9 +171,6 @@
   width:2rem;
 }
 @media screen and (min-width:640px){
-  .weather-wrapper{
-    height: 120vh;
-  }
   .weather-wrapper > .select-location{
     width: 10%;
   }
@@ -186,9 +182,6 @@
   }
 }
 @media screen and (max-width:360px){
-  .weather-wrapper{
-    height: 120vh;
-  }
   .weather-wrapper > .forecast > .forecast-table{
     font-size: 0.9rem;
   }

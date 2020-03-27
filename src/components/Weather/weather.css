@@ -82,7 +82,7 @@
 }
 /*現在天氣*/
 .weather-wrapper > .weather-view{
-  height:25%;
+  height:20%;
 }
 .weather-wrapper > .weather-view{
   display: flex;
@@ -104,16 +104,16 @@
 }
 .weather-wrapper > .weather-view > .weather-content > .apparent-temperature,
 .weather-wrapper > .weather-view > .weather-content > .rain{
-  height: 3rem;
+  height: 2rem;
 }
 .weather-wrapper > .weather-view > .weather-content > .weather-icon {
   height: 4.375rem;;
   margin: -1.25rem 0 1rem;
 }
 /*今明預報*/
-.weather-wrapper > .forecast{
+/*.weather-wrapper > .forecast{
   height:35%;
-}
+}*/
 .weather-wrapper > .forecast >.weather-dec{
   margin: 0 5%;
 }

@@ -1,6 +1,7 @@
 .weather-wrapper{
   position: absolute;
   overflow: scroll;
+  overflow-x:hidden;
   top: 3.2rem;
   bottom: 0;
   width: 100%;

@@ -66,7 +66,7 @@
   border:none;
   width: 8.75rem;
   height: 2rem;
-  padding-left:2.6rem;
+  padding-left:2.3rem;
   outline: none;
 }
 .air-wrapper > .aqi-wrapper > .location-wrapper > .location-content > select > option{
@@ -76,6 +76,7 @@
 .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper{
   position: absolute;
   overflow: auto;
+  overflow-x:hidden;
   bottom: 0;
   top:100px;
   left: 0;
@@ -87,10 +88,10 @@
   max-height:520px;
 }
 .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper > ul > .station-item{
-  width: 8.75rem;
+  width: 8rem;
   text-align: left;
   border:1px solid rgb(216, 218, 215);
-  padding:1rem .5rem 1rem .375rem;
+  padding:1rem .5rem 1rem .2rem;
   box-shadow: 0 0 .3125rem rgb(216, 218, 215);
   box-sizing: border-box;
 }
@@ -105,14 +106,14 @@
 /*空氣汙染指標內容*/
 .air-wrapper > .aqi-wrapper > .quality-wrapper{
   flex: 1;
-  overflow: auto;
+  overflow: scroll;
 }
 .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item{
   height: 110vh;
 }
 .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item > ul{
   list-style: none;
-  margin:.5rem .3rem 1.25rem .3rem;
+  margin:.5rem .3rem 1.25rem;
   padding:0;
 }
 .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item > ul > li{
@@ -189,9 +190,9 @@
   }
 }
 @media screen and (max-width:320px){
-  .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper{
+  /*.air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper{
     height: 74vh;
-  }
+  }*/
   .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item > ul > li{
     padding:0 .4375rem 0 .0625rem;
   }

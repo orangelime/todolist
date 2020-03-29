@@ -112,7 +112,7 @@ export default {
       let that = this;
       this.$ajax('https://opendata.epa.gov.tw/api/v1/AQI?%24skip=0&%24top=1000&%24format=json')
       .then(function(response){
-        console.log(response.data)
+        //console.log(response.data)
         that.stationField = response.data
         that.stationField = that.stationField.reverse()
         that.siteName = that.filterStation[index].SiteName

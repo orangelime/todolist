@@ -32,9 +32,6 @@
         <p class="rain">降雨：{{rainFields[0]['elementValue'][0]['value']}}%</p>
         <p class="ultraviolet-index">紫外線指數:{{uviFields[0]['elementValue'][0]['value']}}</p>
       </div>
-      <div class="weather-dec">
-
-      </div>
     </div>
     <!--今明預報-->
     <div class="forecast">
@@ -106,10 +103,8 @@
       </table>
     </div>
   </div>
-
 </template>
 <script>
-
 export default {
   name:'MyWeather',
   data(){
@@ -134,12 +129,6 @@ export default {
       { list: '明日晚上',time:'18:00-06:00',icons:'night'},
       ],
     }
-  },
-  components:{
-
-  },
-  mounted(){
-
   },
   /*點選地址選擇框其他部分關閉地址選擇*/
   directives:{
@@ -170,7 +159,7 @@ export default {
       .then(function(response){
         //console.log(response.data)
         var cities = response.data.records.locations[0].location
-        console.log(cities)
+        //console.log(cities)
         cities = cities.sort(function(a,b){
           return a.geocode < b.geocode? 1 : -1;
         })
@@ -198,10 +187,8 @@ export default {
     },
     closeLocations:function(){
       this.locationShow = false
-      //console.log('hide')
     },
     selectLocations:function(){
-      //console.log('show')
       this.locationShow = true
     },
     onLocationClick:function(index){
@@ -215,14 +202,10 @@ export default {
       var hour = new Date().getHours();
       var min = new Date().getMinutes();
       var sec = new Date().getSeconds();
-
       Date.prototype.addDays = function(days) {
           this.setDate(this.getDate() + days);
           return this.getDate();
       }
-
-
-
       var month = now.getMonth() + 1 < 10 ? '0' +  (now.getMonth() + 1) : now.getMonth() + 1;
       if((hour >= 0 && min >= 0) && (hour <=17 && min >= 0)){
         var day = now.getDate() < 10 ? '0' + now.getDate() : now.getDate();
@@ -253,7 +236,6 @@ export default {
       var hour = new Date().getHours();
       var min = new Date().getMinutes();
       var sec = new Date().getSeconds();
-      //console.log((hour >= 6 && min >= 0) && (hour <=17 && min >= 0))
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){ //6-18之白天低溫 正確
         return this.lowTempFields.slice(0,14).filter((item,index,array) => {
           return index % 2 == 0;
@@ -268,7 +250,6 @@ export default {
       var hour = new Date().getHours();
       var min = new Date().getMinutes();
       var sec = new Date().getSeconds();
-      //console.log(hour<=18)
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return this.lowTempFields.filter((item,index,array) => { //6-18之晚上低溫 正確
           return index % 2 !== 0;
@@ -283,7 +264,6 @@ export default {
       var hour = new Date().getHours();
       var min = new Date().getMinutes();
       var sec = new Date().getSeconds();
-
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return this.highTempFields.slice(0,14).filter((item,index,array) => { //6-18之白天高溫 正確
           return index % 2 == 0;
@@ -298,7 +278,6 @@ export default {
       var hour = new Date().getHours();
       var min = new Date().getMinutes();
       var sec = new Date().getSeconds();
-      //console.log((hour >= 6 && min >= 0) && (hour <=18 && min >= 0))
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return this.highTempFields.filter((item,index,array) => { //6-18之晚上高溫 正確
           return index % 2 !== 0;
@@ -313,7 +292,6 @@ export default {
       var hour = new Date().getHours();
       var min = new Date().getMinutes();
       var sec = new Date().getSeconds();
-      //console.log((hour >= 6 && min >= 0) && (hour <=17 && min >= 0))
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return this.descriptionFields.slice(0,14).filter((item,index,array) => { //6-18
           return index % 2 == 0;
@@ -349,7 +327,6 @@ export default {
         return ary.toString();
       }
     }
-
   },
   created(){
     this.currentWeather(1);

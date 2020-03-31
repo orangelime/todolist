@@ -56,7 +56,7 @@
   overflow:hidden;
 }
 .air-wrapper > .aqi-wrapper > .location-wrapper > .location-content{
-  width: 8.75rem;/*130px*/
+  width: 8rem;/*130px*/
   margin-top: .3em ;
   box-sizing: border-box;
   text-align: center;
@@ -65,13 +65,11 @@
 .air-wrapper > .aqi-wrapper > .location-wrapper > .location-content > select{
   font-size: 0.9rem;
   border:none;
-  width: 8.75rem;
+  width: 8rem;
   height: 2rem;
-  padding-left:2.2rem;
+  padding-left:2rem;
   outline: none;
-}
-.air-wrapper > .aqi-wrapper > .location-wrapper > .location-content > select > option{
-  border-bottom:1px solid rgb(216, 218, 215);
+  background-color: white;
 }
 /*縣市站點*/
 .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper{
@@ -88,10 +86,10 @@
   max-height:520px;
 }
 .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper > ul > .station-item{
-  width: 8.75rem;
+  width: 8rem;
   text-align: left;
   border:1px solid rgb(216, 218, 215);
-  padding:1rem .5rem 1rem .375rem;
+  padding:1rem 1rem 1rem .1rem;
   box-shadow: 0 0 .3125rem rgb(216, 218, 215);
   box-sizing: border-box;
 }
@@ -113,7 +111,7 @@
 }
 .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item > ul{
   list-style: none;
-  margin:.5rem .3rem 1.25rem;
+  margin:.3rem .3rem 1.25rem;
   padding:0;
 }
 .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item > ul > li{
@@ -151,10 +149,12 @@
   flex: 0 0 46%;
   font-size: 1.0625rem;
   font-weight: 900;
+  letter-spacing: -0.15rem;
 }
 .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item > ul > li > .text{
   flex: 0 0 40%;
   font-size: 10px;
+  letter-spacing: -0.05rem;
 }
 .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item > ul > li > .number{
   font-size: 1.0625rem;
@@ -165,12 +165,8 @@
   .air-wrapper > .light-wrapper > .light-content{
     font-size: 1rem;
   }
-  .air-wrapper > .aqi-wrapper > .location-wrapper > .station-wrapper > ul > .station-item{
-    width: 8rem;
-    padding:1rem 1rem 1rem 0.1rem;
-  }
   .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item{
-    height: 135vh;
+    height: 140vh;
   }
   .air-wrapper > .aqi-wrapper > .quality-wrapper > .quality-item > ul > li > .name{
     font-size: 3rem;

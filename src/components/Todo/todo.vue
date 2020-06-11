@@ -63,12 +63,12 @@ export default {
         done:false,
         memoShow:false,
       }
-      var tempList = Store.getItem('newTodoList')
+      let tempList = Store.getItem('newTodoList')
       if (tempList) {
         tempList.push(listObj)
         Store.setItem('newTodoList', tempList)
       } else {
-        var tempData = []
+        let tempData = []
         tempData.push(listObj)
         Store.setItem('newTodoList', tempData)
       }
@@ -96,7 +96,7 @@ export default {
       Store.setItem('newTodoList', this.newTodoList)
     },
     initTodo () {
-      var todoArr = Store.getItem('newTodoList')
+      let todoArr = Store.getItem('newTodoList')
       if (todoArr) {
         for (let i = 0, len = todoArr.length; i < len; i++) {
           if (todoArr[i].done === false) {

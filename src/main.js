@@ -50,7 +50,8 @@ const router = new VueRouter({
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  components: { App },
-  template: '<App/>',
+  render: h => h(App),
+  /*components: { App },
+  template: '<App/>',*/
   router
-})
+}).$mount('#app')

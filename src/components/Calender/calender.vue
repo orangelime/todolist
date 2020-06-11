@@ -38,27 +38,22 @@ export default {
     }
   },
   filters:{
-    formatDate:function(value){
-      var padDate = function(value){
+    formatDate(value){
+      let padDate = function(value){
         return value < 10 ? '0' + value : value;
       }
-      var date = new Date(value);
-      var year = date.getFullYear();
-      var month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Seb','Oct','Nov','Dec'];
-      var day = padDate(date.getDate());
+      let date = new Date(value);
+      let year = date.getFullYear();
+      let month = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Seb','Oct','Nov','Dec'];
+      let day = padDate(date.getDate());
       return month[date.getMonth()] + ' ' + day + ',' + year;
     },
-    formatWeek:function(value){
-      var date = new Date(value);
-      var week = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    formatWeek(value){
+      let date = new Date(value);
+      let week = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
       return week[date.getDay()];
     }
   },
-  beforeDestroy:function(){
-    if(this.timer){
-      clearInterval(this.timer);
-    }
-  }
 }
 </script>
 <style>

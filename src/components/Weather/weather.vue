@@ -105,6 +105,10 @@
   </div>
 </template>
 <script>
+const hour = new Date().getHours();
+const min = new Date().getMinutes();
+const sec = new Date().getSeconds();
+
 export default {
   name:'MyWeather',
   data(){
@@ -133,7 +137,7 @@ export default {
   /*點選地址選擇框其他部分關閉地址選擇*/
   directives:{
     clickoutside:{
-      bind:function(el,binding,vnode){
+      bind(el,binding,vnode){
         function documentHandler(e){
           if(el.contains(e.target)){
               return false;
@@ -145,7 +149,7 @@ export default {
         el._vueClickOutside_ = documentHandler;
         document.addEventListener('click',documentHandler);
       },
-      unbind:function(el,binding){
+      unbind(el,binding){
         document.removeEventListener('click',el._vueClickOutside_);
         delete el._vueClickOutside_;
       }
@@ -153,12 +157,12 @@ export default {
   },
   methods:{
     currentWeather:function(index){
-      var that = this;
-      var city = '臺北市,高雄市,新北市,臺中市,臺南市,桃園市,基隆市,桃園市,新竹市,新竹縣,苗栗縣,彰化縣,南投縣,雲林縣,嘉義市,嘉義縣,屏東縣,宜蘭縣,花蓮縣,臺東縣,連江縣,金門縣,澎湖縣'
+      let that = this;
+      const city = '臺北市,高雄市,新北市,臺中市,臺南市,桃園市,基隆市,桃園市,新竹市,新竹縣,苗栗縣,彰化縣,南投縣,雲林縣,嘉義市,嘉義縣,屏東縣,宜蘭縣,花蓮縣,臺東縣,連江縣,金門縣,澎湖縣'
       this.$ajax(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-B9A4A687-6DDE-4B59-8D4E-48A3CDE6792C&format=JSON&locationName=${city}`)
       .then(function(response){
         //console.log(response.data)
-        var cities = response.data.records.locations[0].location
+        let cities = response.data.records.locations[0].location
         //console.log(cities)
         cities = cities.sort(function(a,b){
           return a.geocode < b.geocode? 1 : -1;
@@ -196,34 +200,29 @@ export default {
     },
     //獲取當前日期
     nowDay(date){
-      var now = new Date();
-      var interval = now.getTime() + 1000*60*60*24*date
+      let now = new Date();
+      let interval = now.getTime() + 1000*60*60*24*date
       now.setTime(interval);
-      var hour = new Date().getHours();
-      var min = new Date().getMinutes();
-      var sec = new Date().getSeconds();
       Date.prototype.addDays = function(days) {
           this.setDate(this.getDate() + days);
           return this.getDate();
       }
-      var month = now.getMonth() + 1 < 10 ? '0' +  (now.getMonth() + 1) : now.getMonth() + 1;
+      let month = now.getMonth() + 1 < 10 ? '0' +  (now.getMonth() + 1) : now.getMonth() + 1;
       if((hour >= 0 && min >= 0) && (hour <=17 && min >= 0)){
-        var day = now.getDate() < 10 ? '0' + now.getDate() : now.getDate();
-        var week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][now.getDay()];
-        //console.log(typeof(day))
+        let day = now.getDate() < 10 ? '0' + now.getDate() : now.getDate();
+        let week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][now.getDay()];
+        return month + '/' + day +' \n '+ week;
       }else{
-        var day = (now.addDays(1) < 10 ? '0'  : '') + now.addDays(0);
-        var week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][now.getDay()];
+        let day = (now.addDays(1) < 10 ? '0'  : '') + now.addDays(0);
+        let week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][now.getDay()];
+        return month + '/' + day +' \n '+ week;
       }
-      return month + '/' + day +' \n '+ week;
+
     },
   },
   computed:{
     forecastData(){
-      var hour = new Date().getHours();
-      var min = new Date().getMinutes();
-      var sec = new Date().getSeconds();
-      var arr = [];
+      let arr = [];
       if((hour >= 0 && min >= 0) && (hour <=5 && min >= 0)){ //0-6之凌晨預報
         return this.forecast.slice(0,3)
       }else if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){ //6-18之白天預報
@@ -233,9 +232,6 @@ export default {
       }
     },
     filterDayLowTempFields(){
-      var hour = new Date().getHours();
-      var min = new Date().getMinutes();
-      var sec = new Date().getSeconds();
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){ //6-18之白天低溫 正確
         return this.lowTempFields.slice(0,14).filter((item,index,array) => {
           return index % 2 == 0;
@@ -247,9 +243,6 @@ export default {
       }
     },
     filterNightLowTempFields(){
-      var hour = new Date().getHours();
-      var min = new Date().getMinutes();
-      var sec = new Date().getSeconds();
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return this.lowTempFields.filter((item,index,array) => { //6-18之晚上低溫 正確
           return index % 2 !== 0;
@@ -261,9 +254,6 @@ export default {
       }
     },
     filterDayHighTempFields(){
-      var hour = new Date().getHours();
-      var min = new Date().getMinutes();
-      var sec = new Date().getSeconds();
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return this.highTempFields.slice(0,14).filter((item,index,array) => { //6-18之白天高溫 正確
           return index % 2 == 0;
@@ -275,9 +265,6 @@ export default {
       }
     },
     filterNightHighTempFields(){
-      var hour = new Date().getHours();
-      var min = new Date().getMinutes();
-      var sec = new Date().getSeconds();
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return this.highTempFields.filter((item,index,array) => { //6-18之晚上高溫 正確
           return index % 2 !== 0;
@@ -289,9 +276,6 @@ export default {
       }
     },
     filterDayIconsFields(){
-      var hour = new Date().getHours();
-      var min = new Date().getMinutes();
-      var sec = new Date().getSeconds();
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return this.descriptionFields.slice(0,14).filter((item,index,array) => { //6-18
           return index % 2 == 0;
@@ -303,9 +287,6 @@ export default {
       }
     },
     filterNightIconsFields(){
-      var hour = new Date().getHours();
-      var min = new Date().getMinutes();
-      var sec = new Date().getSeconds();
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return this.descriptionFields.filter((item,index,array) => { //6-18
           return index % 2 !== 0;
@@ -318,9 +299,6 @@ export default {
     },
     nightIcon(){
       let ary = ['night'];
-      var hour = new Date().getHours();
-      var min = new Date().getMinutes();
-      var sec = new Date().getSeconds();
       if((hour >= 6 && min >= 0) && (hour <=17 && min >= 0)){
         return false
       }else{
@@ -330,11 +308,9 @@ export default {
   },
   created(){
     this.currentWeather(1);
-    let currentDate = [];
-    for(var i=0;i<7;i++){
-      currentDate.push(this.nowDay(i))
+    for(let i=0;i<7;i++){
+      this.dateFields.push(this.nowDay(i))
     }
-    this.dateFields = currentDate
   }
 }
 </script>

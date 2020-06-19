@@ -37,7 +37,8 @@
 import Mycalender from '../Calender/calender.vue'
 import Vue from 'vue'
 import VueVisible from 'vue-visible'
-import Store from '../Store/store'
+import Keep from '../Keep/keep'
+import { mapGetters, mapActions } from 'vuex'
 
 Vue.use(VueVisible);
 
@@ -46,67 +47,32 @@ export default {
   data(){
     return{
       newList:"",//輸入框的位置，初始值為空
-      newTodoList:[],//陣列
-      newListLength:0,//list長度,
     }
   },
   components:{
     Mycalender,
   },
   mounted () {
-    this.initTodo()
+    this.$store.dispatch('initTodo',this.todoArr);
   },
   methods:{
+    ...mapActions([
+      'addNewTodo',
+      'editMemo',
+      'topList',
+      'deleteList',
+      'initTodo',//更新
+    ]),
     addTodo(){
-      let listObj = {
-        newList:this.newList,
-        done:false,
-        memoShow:false,
-      }
-      let tempList = Store.getItem('newTodoList')
-      if (tempList) {
-        tempList.push(listObj)
-        Store.setItem('newTodoList', tempList)
-      } else {
-        let tempData = []
-        tempData.push(listObj)
-        Store.setItem('newTodoList', tempData)
-      }
-      this.newTodoList.push(listObj)
-      this.newListLength++
-      this.newList = ''//輸入後清空
+      this.$store.dispatch('addNewTodo',this.newList);
+      this.newList = ''
     },
-    topList(index,item){
-      //在上一項插入該項
-      this.newTodoList.splice(index-index,0,(this.newTodoList[index]))
-      //刪除後一項
-      this.newTodoList.splice(index+1,1)
-      item.visible = !item.visible
-      Store.setItem('newTodoList', this.newTodoList)
-    },
-    editMemo(index,item){
-      item.memoShow = !item.memoShow
-      Store.setItem('newTodoList', this.newTodoList)
-    },
-    deleteList(index,done){
-      if(done){
-        this.newListLength--
-      }
-      this.newTodoList.splice(index,1);
-      Store.setItem('newTodoList', this.newTodoList)
-    },
-    initTodo () {
-      let todoArr = Store.getItem('newTodoList')
-      if (todoArr) {
-        for (let i = 0, len = todoArr.length; i < len; i++) {
-          if (todoArr[i].done === false) {
-            this.newListLength++
-          }
-        }
-        this.newTodoList = todoArr
-      }
-    },
-  }
+  },
+  /*vuex */
+  computed: mapGetters({
+  	// 使用取 list 的函式，將資料存在newTodoList
+    newTodoList: 'getTodos',
+  }),
 }
 </script>
 <style>

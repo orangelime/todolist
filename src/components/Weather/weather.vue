@@ -156,10 +156,10 @@ export default {
     }
   },
   methods:{
-    currentWeather:function(index){
+    currentWeather(index){
       let that = this;
-      const city = '臺北市,高雄市,新北市,臺中市,臺南市,桃園市,基隆市,桃園市,新竹市,新竹縣,苗栗縣,彰化縣,南投縣,雲林縣,嘉義市,嘉義縣,屏東縣,宜蘭縣,花蓮縣,臺東縣,連江縣,金門縣,澎湖縣'
-      this.$ajax(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-B9A4A687-6DDE-4B59-8D4E-48A3CDE6792C&format=JSON&locationName=${city}`)
+      //const city = '臺北市,高雄市,新北市,臺中市,臺南市,桃園市,基隆市,桃園市,新竹市,新竹縣,苗栗縣,彰化縣,南投縣,雲林縣,嘉義市,嘉義縣,屏東縣,宜蘭縣,花蓮縣,臺東縣,連江縣,金門縣,澎湖縣'
+      this.$ajax(`https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-B9A4A687-6DDE-4B59-8D4E-48A3CDE6792C&format=JSON&locationName=%E8%87%BA%E5%8C%97%E5%B8%82,%E9%AB%98%E9%9B%84%E5%B8%82,%E6%96%B0%E5%8C%97%E5%B8%82,%E8%87%BA%E4%B8%AD%E5%B8%82,%E8%87%BA%E5%8D%97%E5%B8%82,%E6%A1%83%E5%9C%92%E5%B8%82,%E5%9F%BA%E9%9A%86%E5%B8%82,%E6%A1%83%E5%9C%92%E5%B8%82,%E6%96%B0%E7%AB%B9%E5%B8%82,%E6%96%B0%E7%AB%B9%E7%B8%A3,%E8%8B%97%E6%A0%97%E7%B8%A3,%E5%BD%B0%E5%8C%96%E7%B8%A3,%E5%8D%97%E6%8A%95%E7%B8%A3,%E9%9B%B2%E6%9E%97%E7%B8%A3,%E5%98%89%E7%BE%A9%E5%B8%82,%E5%98%89%E7%BE%A9%E7%B8%A3,%E5%B1%8F%E6%9D%B1%E7%B8%A3,%E5%AE%9C%E8%98%AD%E7%B8%A3,%E8%8A%B1%E8%93%AE%E7%B8%A3,%E8%87%BA%E6%9D%B1%E7%B8%A3,%E9%80%A3%E6%B1%9F%E7%B8%A3,%E9%87%91%E9%96%80%E7%B8%A3,%E6%BE%8E%E6%B9%96%E7%B8%A3`)
       .then(function(response){
         //console.log(response.data)
         let cities = response.data.records.locations[0].location
@@ -189,13 +189,13 @@ export default {
         console.log(err)
       })
     },
-    closeLocations:function(){
+    closeLocations(){
       this.locationShow = false
     },
-    selectLocations:function(){
+    selectLocations(){
       this.locationShow = true
     },
-    onLocationClick:function(index){
+    onLocationClick(index){
       this.currentWeather(index)
     },
     //獲取當前日期
@@ -211,11 +211,12 @@ export default {
       if((hour >= 0 && min >= 0) && (hour <=17 && min >= 0)){
         let day = now.getDate() < 10 ? '0' + now.getDate() : now.getDate();
         let week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][now.getDay()];
-        return month + '/' + day +' \n '+ week;
+        return `${month}/${day}\n${week}`;
       }else{
         let day = (now.addDays(1) < 10 ? '0'  : '') + now.addDays(0);
         let week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][now.getDay()];
-        return month + '/' + day +' \n '+ week;
+        /*return month + '/' + day +' \n '+ week;*/
+        return `${month}/${day}\n${week}`;
       }
 
     },

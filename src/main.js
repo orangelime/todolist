@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+import store from './components/store'
 import Todo from './components/Todo/todo.vue'
 import Weather from './components/Weather/weather.vue'
 import Aqi from './components/Aqi/aqi.vue'
@@ -17,6 +19,7 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter);
 
+Vue.use(Vuex);
 
 const routes = [
   {
@@ -51,7 +54,6 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   render: h => h(App),
-  /*components: { App },
-  template: '<App/>',*/
+  store,
   router
 }).$mount('#app')
